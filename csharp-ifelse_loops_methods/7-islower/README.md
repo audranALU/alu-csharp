@@ -1,11 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+C# - if/else, Loops, Functions
+This project covers control flow, loops, and defining methods in C#. It builds on the basics from the Hello, World project and introduces decision-making and function abstraction.
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>_7_islower</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-</Project>
+Requirements
+All C# files compiled using dotnet
+Projects built with .NET 7 SDK
