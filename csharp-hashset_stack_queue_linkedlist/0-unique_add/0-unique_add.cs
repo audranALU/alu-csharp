@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 class List
 {
 	// A HashSet ignores repeats, so Add returns true only the first time a value appears.
