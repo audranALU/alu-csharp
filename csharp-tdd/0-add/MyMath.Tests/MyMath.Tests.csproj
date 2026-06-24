@@ -1,18 +1,16 @@
-using NUnit.Framework;
-using MyMath;
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
 
-namespace MyMath.Tests
-{
-    [TestFixture]
-    public class OperationsTests
-    {
-        [TestCase(1, 2, 3)]
-        [TestCase(-1, 1, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(-5, -5, -10)]
-        public void Add_ReturnsCorrectSum(int a, int b, int expected)
-        {
-            Assert.That(Operations.Add(a, b), Is.EqualTo(expected));
-        }
-    }
-}
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyMath\MyMath.csproj" />
+  </ItemGroup>
+</Project>
