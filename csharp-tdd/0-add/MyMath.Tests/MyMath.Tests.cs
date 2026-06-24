@@ -1,17 +1,16 @@
 using NUnit.Framework;
 
-namespace MyMath.Tests
+namespace MyMath.Tests;
+
+[TestFixture]
+public class OperationsTests
 {
-    [TestFixture]
-    public class OperationsTests
+    [TestCase(1, 2, 3)]
+    [TestCase(-1, 1, 0)]
+    [TestCase(0, 0, 0)]
+    [TestCase(-5, -5, -10)]
+    public void Add_ReturnsCorrectSum(int a, int b, int expected)
     {
-        [TestCase(1, 2, 3)]
-        [TestCase(-1, 1, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(-5, -5, -10)]
-        public void Add_ReturnsCorrectSum(int a, int b, int expected)
-        {
-            Assert.AreEqual(expected, Operations.Add(a, b));
-        }
+        Assert.That(Operations.Add(a, b), Is.EqualTo(expected));
     }
 }
