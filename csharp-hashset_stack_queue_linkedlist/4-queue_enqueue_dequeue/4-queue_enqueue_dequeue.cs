@@ -3,29 +3,44 @@ using System.Collections.Generic;
 
 class MyQueue
 {
-	public static Queue<string> Info(Queue<string> aQueue, string newItem, string search)
-	{
-		Console.WriteLine("Number of items: {0}", aQueue.Count);
-		if (aQueue.Count == 0)
-			Console.WriteLine("Queue is empty");
-		else
-			Console.WriteLine("First item: {0}", aQueue.Peek());
+    public static Queue<string> Info(Queue<string> aQueue, string newItem, string search)
+    {
+        Console.WriteLine("Number of items: " + aQueue.Count);
 
-		aQueue.Enqueue(newItem);
+        if (aQueue.Count == 0)
+        {
+            Console.WriteLine("Queue is empty");
+            aQueue.Enqueue(newItem);
+            Console.WriteLine("Queue contains \"" + search + "\": " + aQueue.Contains(search));
+            return aQueue;
+        }
 
-		bool found = aQueue.Contains(search);
-		Console.WriteLine("Queue contains \"{0}\": {1}", search, found);
+        Console.WriteLine("First item: " + aQueue.Peek());
 
-		// Remove items from the front until the searched item has been taken off as well.
-		if (found)
-		{
-			string removed;
-			do
-			{
-				removed = aQueue.Dequeue();
-			} while (removed != search);
-		}
+        aQueue.Enqueue(newItem);
 
-		return aQueue;
-	}
+        bool contains = aQueue.Contains(search);
+        Console.WriteLine("Queue contains \"" + search + "\": " + contains);
+
+        if (contains)
+        {
+            aQueue.Dequeue();
+            string[] arr = aQueue.ToArray();
+            int idx = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == search)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+
+            aQueue.Clear();
+            for (int i = idx + 1; i < arr.Length; i++)
+                aQueue.Enqueue(arr[i]);
+        }
+
+        return aQueue;
+    }
 }

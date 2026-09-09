@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 class LList
 {
-	// Read the head value, then unlink the head node. Empty list yields 0.
-	public static int Pop(LinkedList<int> myLList)
-	{
-		if (myLList.First == null)
-			return 0;
-		int value = myLList.First.Value;
-		myLList.RemoveFirst();
-		return value;
-	}
+    public static int Pop(LinkedList<int> myLList)
+    {
+        if (myLList.First == null)
+            return 0;
+
+        int value = myLList.First.Value;
+        myLList.RemoveFirst();
+        return value;
+    }
 }

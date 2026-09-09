@@ -3,28 +3,48 @@ using System.Collections.Generic;
 
 class MyStack
 {
-	public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
-	{
-		Console.WriteLine("Number of items: {0}", aStack.Count);
-		if (aStack.Count == 0)
-			Console.WriteLine("Stack is empty");
-		else
-			Console.WriteLine("Top item: {0}", aStack.Peek());
+    public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
+    {
+        Console.WriteLine("Number of items: " + aStack.Count);
 
-		bool found = aStack.Contains(search);
-		Console.WriteLine("Stack contains \"{0}\": {1}", search, found);
+        if (aStack.Count == 0)
+        {
+            Console.WriteLine("Stack is empty");
+            Console.WriteLine("Stack contains \"" + search + "\": " + aStack.Contains(search));
+            aStack.Push(newItem);
+            return aStack;
+        }
 
-		// Remove items from the top until the searched item has been taken off as well.
-		if (found)
-		{
-			string removed;
-			do
-			{
-				removed = aStack.Pop();
-			} while (removed != search);
-		}
+        string top = aStack.Pop();
 
-		aStack.Push(newItem);
-		return aStack;
-	}
+        Console.WriteLine("Top item: " + top);
+
+        bool contains = aStack.Contains(search);
+        Console.WriteLine("Stack contains \"" + search + "\": " + contains);
+
+        if (contains)
+        {
+            string[] arr = aStack.ToArray();
+            int idx = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == search)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+
+            aStack.Clear();
+            for (int i = arr.Length - 1; i > idx; i--)
+                aStack.Push(arr[i]);
+        }
+        else
+        {
+            aStack.Push(top);
+        }
+
+        aStack.Push(newItem);
+        return aStack;
+    }
 }

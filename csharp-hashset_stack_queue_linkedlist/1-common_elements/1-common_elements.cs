@@ -3,17 +3,18 @@ using System.Collections.Generic;
 
 class List
 {
-	// Put list1 in a set for O(1) lookups, collect values from list2 that appear in it.
-	public static System.Collections.Generic.List<int> CommonElements(
-		System.Collections.Generic.List<int> list1, System.Collections.Generic.List<int> list2)
-	{
-		var inFirst = new HashSet<int>(list1);
-		var common = new HashSet<int>();
-		foreach (int value in list2)
-			if (inFirst.Contains(value))
-				common.Add(value);
-		var result = new System.Collections.Generic.List<int>(common);
-		result.Sort();
-		return result;
-	}
+    public static List<int> CommonElements(List<int> list1, List<int> list2)
+    {
+        List<int> result = new List<int>();
+        HashSet<int> set2 = new HashSet<int>(list2);
+
+        foreach (int n in list1)
+        {
+            if (set2.Contains(n) && !result.Contains(n))
+                result.Add(n);
+        }
+
+        result.Sort();
+        return result;
+    }
 }

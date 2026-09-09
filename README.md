@@ -1,3 +1,16 @@
-this is a readme file
+# C# - AR/VR Development
 
-this is intranet exercise for me to sharpen my mind in C#
+This repository contains C# projects for ALU's AR/VR Development curriculum.
+
+## Projects
+- [csharp-hello_world](./csharp-hello_world/) - Introduction to C# programming
+- [csharp-ifelse_loops_methods](./csharp-ifelse_loops_methods/) - if/else, loops, functions
+- [csharp-arrays_lists_dictionaries](./csharp-arrays_lists_dictionaries/) - arrays, lists, dictionaries
+- [csharp-hashset_stack_queue_linkedlist](./csharp-hashset_stack_queue_linkedlist/) - hashsets, stacks, queues, linked lists
+- [csharp-structs_enums](./csharp-structs_enums/) - structs, enumerations
+- [csharp-exceptions](./csharp-exceptions/) - exceptions and error handling
+- [csharp-classes](./csharp-classes/) - classes and namespaces
+
+## Requirements
+- All C# files compiled using `dotnet`
+- Projects built with .NET 7 SDK
